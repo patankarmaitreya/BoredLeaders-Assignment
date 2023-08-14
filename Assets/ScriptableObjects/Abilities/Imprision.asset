@@ -17,3 +17,5 @@ MonoBehaviour:
   duration: 2
   cagePrefab: {fileID: 9087029666288116033, guid: 1c7c87b4e61cda245b3e4f07014da574,
     type: 3}
+  animator: {fileID: 7786660670431689051, guid: 1c7c87b4e61cda245b3e4f07014da574,
+    type: 3}

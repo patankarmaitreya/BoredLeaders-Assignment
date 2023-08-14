@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public enum GameState
 {
@@ -17,8 +18,11 @@ public class GameController : Element
     public PlayerController playerController;
     public AbilityController abilityController;
 
+    public Transform winText;
     public GameState State { get; private set; }
     private GameState lastState;
+
+    private string winner;
 
     private void Awake()
     {
@@ -48,7 +52,8 @@ public class GameController : Element
                 HandlePlayerTurn(app.gameModel.player2Model);
                 break;
             case GameState.Ending:
-                Debug.Log("Game Ended");
+                winText.GetChild(0).GetComponent<TextMeshProUGUI>().text = winner + " Wins";
+                winText.gameObject.SetActive(true);
                 break;
             default:
                 Debug.LogError("Incorrect state passed as parameter");
@@ -85,14 +90,17 @@ public class GameController : Element
             if (State == GameState.Player1Turn)
             {
                 ChangeState(GameState.Player2Turn);
+                lastState = GameState.Player2Turn;
             }
             else if (State == GameState.Player2Turn)
             {
                 ChangeState(GameState.Player1Turn);
+                lastState |= GameState.Player1Turn;
             }
         }
         else
         {
+            winner = (lastState == GameState.Player1Turn) ? "Player2" : "Player1";
             ChangeState(GameState.Ending);
         }
     }
