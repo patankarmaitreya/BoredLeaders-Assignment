@@ -60,7 +60,7 @@ public class GameController : Element
                 break;
         }
 
-        Debug.Log($"New state: {newState}");
+        //Debug.Log($"New state: {newState}");
     }
 
     public void HandleAbilities(PlayerModel playerModel, PlayerModel enemyModel, AbilityModel abilityModel)
@@ -95,12 +95,12 @@ public class GameController : Element
             else if (State == GameState.Player2Turn)
             {
                 ChangeState(GameState.Player1Turn);
-                lastState |= GameState.Player1Turn;
+                lastState = GameState.Player1Turn;
             }
         }
         else
         {
-            winner = (lastState == GameState.Player1Turn) ? "Player2" : "Player1";
+            winner = (lastState == GameState.Player1Turn) ? "Player1" : "Player2";
             ChangeState(GameState.Ending);
         }
     }

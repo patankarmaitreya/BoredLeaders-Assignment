@@ -31,9 +31,8 @@ public class PlayerController : Element
         if(model.state == PlayerState.FREE) 
         {
             int rollResult = RollDice(6);
-            Debug.Log(rollResult);
+            Debug.Log("Rol Result - " + rollResult);
             int newPos = GetNewPosition(rollResult);
-            Debug.Log(newPos);
 
             model.cellNumber = newPos;
             if (onPositionUpdated != null)
