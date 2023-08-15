@@ -8,23 +8,25 @@ using Random = UnityEngine.Random;
 
 public class PlayerController : Element
 {
-    [SerializeField] private Transform gridHolder;
-    private PlayerModel model;
+    [SerializeField] private List<Button> playerDicecastButtons;
 
-    [SerializeField]private List<Button> playerDicecastButtons;
+    [SerializeField] private Transform gridHolder;
+
+    private PlayerModel model;
 
     public event Action onPositionUpdated;
     public event Action onTurnFinished;
+
+    public void SetModel(PlayerModel model)
+    {
+        this.model = model;
+    }
 
     private void Start()
     {
         LinkDiceButtons();
     }
 
-    public void SetModel(PlayerModel model)
-    {
-        this.model = model;
-    }
 
     public void UpdatePosition()
     {

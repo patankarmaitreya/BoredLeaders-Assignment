@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   playerName: Red
-  playerColor: {r: 0, g: 0, b: 0, a: 0}
+  playerColor: {r: 1, g: 0, b: 0, a: 0}
+  playerAbilities: 0000000001000000

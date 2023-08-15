@@ -13,14 +13,12 @@ public class Imprision : AbilityBase
         target.state = PlayerState.RESTRAINED;
         target.cageHolder = Instantiate(cagePrefab, target.GetPlayerPosition(target.cellNumber), Quaternion.identity);
         target.cageHolder.GetComponent<Animator>().SetTrigger("Spawn");
-        //target.cageHolder.GetComponent<Animator>().SetBool("Spawn", false);
     }
 
     public override void DeActivate(PlayerModel target)
     {
         target.state = PlayerState.FREE;
         target.cageHolder.GetComponent<Animator>().SetTrigger("Destroy");
-        //Destroy(target.cageHolder);
     }
 
     public override bool CanExecute(PlayerModel target)

@@ -19,7 +19,7 @@ public class GameController : Element
     public AbilityController abilityController;
 
     public Transform winText;
-    public GameState State { get; private set; }
+    private GameState State;
     private GameState lastState;
 
     private string winner;

@@ -5,14 +5,13 @@ using UnityEngine.UI;
 
 public class AbilityController : Element
 {
-    private AbilityModel abilityModel;
-    private PlayerModel targetModel;
-
     [SerializeField] private List<Button> player1AbilityButtons;
     [SerializeField] private List<Button> player2AbilityButtons;
 
+    private AbilityModel abilityModel;
+    private PlayerModel targetModel;
+
     private List<int> indexesToClean = new List<int>();
-    List<AbilityBase> availableAbilities = new List<AbilityBase>();
 
     private void Start()
     {
@@ -55,11 +54,7 @@ public class AbilityController : Element
     {
         foreach (AbilityBase ability in abilityModel.Abilities) 
         { 
-            if(ability.CanExecute(targetModel)) 
-            {
-                availableAbilities.Add(ability);
-            }
-            else
+            if(!ability.CanExecute(targetModel)) 
             {
                 DeActivateAbilityButtons(abilityModel.AbilityToButtonID[ability]);
             }
