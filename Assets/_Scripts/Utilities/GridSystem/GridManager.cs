@@ -4,7 +4,7 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     [SerializeField]private int gridLength = 10, gridWidth = 1;
-    [SerializeField] private Cell cellPrefab;
+    [SerializeField] private GameObject cellPrefab;
 
     public Transform gridHolder;
 

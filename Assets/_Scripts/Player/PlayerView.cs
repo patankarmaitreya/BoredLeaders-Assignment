@@ -6,6 +6,11 @@ public class PlayerView : Element
 {
     private PlayerModel model;
 
+    private PlayerView (PlayerModel model)
+    {
+        this.model = model;
+    }
+
     private void Start()
     {
         model.onPositionChange += Move;
